@@ -1,0 +1,13 @@
+@media  (min-width:768px) and (max-width:1279px) {
+    .images{
+        width: 270px;
+        height: 210px;
+    }
+}
+
+@media  (min-width:1280px){
+    .images{
+        width: 270px;
+        height: 210px;
+    }
+}
