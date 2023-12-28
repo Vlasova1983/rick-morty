@@ -17,7 +17,8 @@ export interface IHero{
     image: string,
     episode:string [],
     url: string,
-    created: string      
+    created: string
+    air_date:string      
 }
 
 

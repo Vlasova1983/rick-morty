@@ -17,7 +17,7 @@ const CharacterPage:NextPage<{ results:IHero }>=({results})=>{
             </Head>            
             <Layout>
                 <div className={styles.conteiner} >
-                    <button onClick={()=>replace('/')}>GO BACK</button>                   
+                    <button  className={styles.back} onClick={()=>replace('/')}>GO BACK</button>                   
                 </div>
                 <CardCharacter item={results}/>
             </Layout>

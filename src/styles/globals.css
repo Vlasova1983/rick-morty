@@ -3,7 +3,8 @@
 :root {  
   --background:#FFFFFF;
   --text-color: #000000;
-  --text-akcent:  #00000080;  
+  --text-akcent:  #00000080;
+  --text-card: #8E8E93; 
 }
 
 body {  

@@ -1,24 +1,27 @@
-import { FC } from "react"
-import Layout from "@/components/layout/layout"
-import Image from 'next/image'
+import { NextPage,GetServerSideProps } from 'next';
+import {  IHeroData } from '@/interfaces/hero.interface';
+import { HeroService } from '@/services/characters.service';
+import Location from '@/components/screens/locations/Locations';
 import Head from "next/head";
-import styles from "../styles/locations.module.css"
 
-const Locations:FC =()=>{    
+
+const LocationsPage:NextPage<{ results:IHeroData }>=({results})=>{    
   return (
-    <Layout>
+    <>
       <Head>
         <title>Locations</title>
-      </Head>  
-      <Image
-            className={styles.images}
-            src="./locations.svg"
-            alt="locations"           
-            width={220}
-            height={135}
-            priority
-        />   
-    </Layout>
+      </Head>
+      <Location results={results}/>
+    </>  
   )
 }
-export default Locations
+
+
+export const getServerSideProps:GetServerSideProps<{ results: string | IHeroData }>= async()=>{
+  const results = await HeroService.getLocation()
+  
+    return {
+      props:{results}
+    }
+  }
+export default LocationsPage

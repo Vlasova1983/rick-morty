@@ -3,10 +3,10 @@ import Image from 'next/image'
 import { IHeroData } from "@/interfaces/hero.interface"
 import Layout from "@/components/layout/layout"
 import Card from "@/components/card/card"
-import styles from "./Home.module.css"
 import Link from "next/link"
+import styles from "./Character.module.css"
 
-const Home:FC<{ results:IHeroData }> =({results})=>{ 
+const Character:FC<{ results:IHeroData }> =({results})=>{ 
   return (
     <Layout> 
       <Image            
@@ -25,4 +25,4 @@ const Home:FC<{ results:IHeroData }> =({results})=>{
     </Layout>
   )
 }
-export default Home
+export default Character

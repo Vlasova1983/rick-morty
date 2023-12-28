@@ -1,24 +1,27 @@
-import { FC } from "react"
-import Layout from "@/components/layout/layout"
-import Image from 'next/image'
+import { NextPage,GetServerSideProps } from 'next';
+import {  IHeroData } from '@/interfaces/hero.interface';
+import { HeroService } from '@/services/characters.service';
+import Episodes from '@/components/screens/episodes/Episodes';
 import Head from "next/head";
-import styles from "../styles/episodes.module.css"
 
-const Episodes:FC =()=>{    
+
+const EpisodesPage:NextPage<{ results:IHeroData }>=({results})=>{    
   return (
-    <Layout>
+    <>
       <Head>
         <title>Episodes</title>
-      </Head> 
-      <Image
-            className={styles.images}
-            src="./episodes.svg"
-            alt="characters"           
-            width={175}
-            height={136}
-            priority
-        />   
-    </Layout>
+      </Head>
+      <Episodes results={results}/>
+    </>
   )
 }
-export default Episodes
+export default EpisodesPage
+
+export const getServerSideProps:GetServerSideProps<{ results: string | IHeroData }>= async()=>{
+  const results = await HeroService.getEposodes()
+  
+    return {
+      props:{results}
+    }
+  }
+  
