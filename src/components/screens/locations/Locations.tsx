@@ -20,7 +20,7 @@ const Location:FC<{ results:IHeroData }> =({results})=>{
 
     <div className={styles.wrapper}>
         {results.results.map(event=>(
-        <Link className={styles.link} key={event.id} href={`/`}> 
+        <Link className={styles.link} key={event.id} href={`/locations/${event.id}`}> 
           <Card  item={event}/>           
         </Link>))}   
       </div>        

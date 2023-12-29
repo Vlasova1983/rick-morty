@@ -77,6 +77,17 @@ export const HeroService = {
       return 'error'
     } 
   } ,
+
+  async getByIdMany(array:number[]){
+    console.log(array)
+    try {           
+        const {data}= await axios.get<IHeroData>(`/character/[1,2,3]`)                
+    return data           
+    }
+    catch (error) {
+       return 'error'
+    } 
+  } ,
     
   async getById(id:number){
     try {           
@@ -96,6 +107,16 @@ export const HeroService = {
        return 'error'
     } 
   },
+
+  async getByIdLocations(id:number){
+    try {           
+        const {data}= await axios.get<IHeroData>(`/location/${id}`)                
+    return data           
+    }
+    catch (error) {
+       return 'error'
+    } 
+  }  ,
   
   async getEposodes(){
     try {           
